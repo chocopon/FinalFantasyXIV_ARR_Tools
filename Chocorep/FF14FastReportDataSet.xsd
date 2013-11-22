@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FF14FastReportDataSet" targetNamespace="http://tempuri.org/FF14FastReportDataSet.xsd" xmlns:mstns="http://tempuri.org/FF14FastReportDataSet.xsd" xmlns="http://tempuri.org/FF14FastReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FF14FastReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FF14FastReportDataSet" msprop:Generator_UserDSName="FF14FastReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FastRepItem" msprop:Generator_TableClassName="FastRepItemDataTable" msprop:Generator_TableVarName="tableFastRepItem" msprop:Generator_TablePropName="FastRepItem" msprop:Generator_RowDeletingName="FastRepItemRowDeleting" msprop:Generator_UserTableName="FastRepItem" msprop:Generator_RowChangingName="FastRepItemRowChanging" msprop:Generator_RowEvHandlerName="FastRepItemRowChangeEventHandler" msprop:Generator_RowDeletedName="FastRepItemRowDeleted" msprop:Generator_RowEvArgName="FastRepItemRowChangeEvent" msprop:Generator_RowChangedName="FastRepItemRowChanged" msprop:Generator_RowClassName="FastRepItemRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Enable" msprop:Generator_ColumnVarNameInTable="columnEnable" msprop:Generator_ColumnPropNameInRow="Enable" msprop:Generator_ColumnPropNameInTable="EnableColumn" msprop:Generator_UserColumnName="Enable" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Expression" msprop:Generator_ColumnVarNameInTable="columnExpression" msprop:Generator_ColumnPropNameInRow="Expression" msprop:Generator_ColumnPropNameInTable="ExpressionColumn" msprop:Generator_UserColumnName="Expression" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Filter" msprop:Generator_ColumnVarNameInTable="columnFilter" msprop:Generator_ColumnPropNameInRow="Filter" msprop:Generator_ColumnPropNameInTable="FilterColumn" msprop:Generator_UserColumnName="Filter" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Format" msprop:Generator_ColumnVarNameInTable="columnFormat" msprop:Generator_ColumnPropNameInRow="Format" msprop:Generator_ColumnPropNameInTable="FormatColumn" msprop:Generator_UserColumnName="Format" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="HasErrorExpression" msprop:Generator_ColumnVarNameInTable="columnHasErrorExpression" msprop:Generator_ColumnPropNameInRow="HasErrorExpression" msprop:Generator_ColumnPropNameInTable="HasErrorExpressionColumn" msprop:Generator_UserColumnName="HasErrorExpression" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="HasErrorFilter" msprop:Generator_ColumnVarNameInTable="columnHasErrorFilter" msprop:Generator_ColumnPropNameInRow="HasErrorFilter" msprop:Generator_ColumnPropNameInTable="HasErrorFilterColumn" msprop:Generator_UserColumnName="HasErrorFilter" type="xs:boolean" default="false" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DPSReport" msprop:Generator_TableClassName="DPSReportDataTable" msprop:Generator_TableVarName="tableDPSReport" msprop:Generator_TablePropName="DPSReport" msprop:Generator_RowDeletingName="DPSReportRowDeleting" msprop:Generator_UserTableName="DPSReport" msprop:Generator_RowChangingName="DPSReportRowChanging" msprop:Generator_RowEvHandlerName="DPSReportRowChangeEventHandler" msprop:Generator_RowDeletedName="DPSReportRowDeleted" msprop:Generator_RowEvArgName="DPSReportRowChangeEvent" msprop:Generator_RowChangedName="DPSReportRowChanged" msprop:Generator_RowClassName="DPSReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" />
+              <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:int" minOccurs="0" />
+              <xs:element name="AtkHit" msprop:Generator_ColumnVarNameInTable="columnAtkHit" msprop:Generator_ColumnPropNameInRow="AtkHit" msprop:Generator_ColumnPropNameInTable="AtkHitColumn" msprop:Generator_UserColumnName="AtkHit" type="xs:float" default="0" minOccurs="0" />
+              <xs:element name="AtkTotal" msprop:Generator_ColumnVarNameInTable="columnAtkTotal" msprop:Generator_ColumnPropNameInRow="AtkTotal" msprop:Generator_ColumnPropNameInTable="AtkTotalColumn" msprop:Generator_UserColumnName="AtkTotal" type="xs:float" default="0" minOccurs="0" />
+              <xs:element name="HitRate" msdata:ReadOnly="true" msdata:Expression="iif(AtkTotal&gt;0,100*AtkHit/AtkTotal,0)" msprop:Generator_ColumnVarNameInTable="columnHitRate" msprop:Generator_ColumnPropNameInRow="HitRate" msprop:Generator_ColumnPropNameInTable="HitRateColumn" msprop:Generator_UserColumnName="HitRate" type="xs:float" default="0" minOccurs="0" />
+              <xs:element name="TotalDmg" msdata:ReadOnly="true" msdata:Expression="DDValue + DotValue" msprop:Generator_ColumnVarNameInTable="columnTotalDmg" msprop:Generator_ColumnPropNameInRow="TotalDmg" msprop:Generator_ColumnPropNameInTable="TotalDmgColumn" msprop:Generator_UserColumnName="TotalDmg" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="MaxDmg" msprop:Generator_ColumnVarNameInTable="columnMaxDmg" msprop:Generator_ColumnPropNameInRow="MaxDmg" msprop:Generator_ColumnPropNameInTable="MaxDmgColumn" msprop:Generator_UserColumnName="MaxDmg" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="MinDmg" msprop:Generator_ColumnVarNameInTable="columnMinDmg" msprop:Generator_ColumnPropNameInRow="MinDmg" msprop:Generator_ColumnPropNameInTable="MinDmgColumn" msprop:Generator_UserColumnName="MinDmg" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="DPS" msprop:Generator_ColumnVarNameInTable="columnDPS" msprop:Generator_ColumnPropNameInRow="DPS" msprop:Generator_ColumnPropNameInTable="DPSColumn" msprop:Generator_UserColumnName="DPS" type="xs:float" default="0" minOccurs="0" />
+              <xs:element name="MaxDPS" msprop:Generator_ColumnVarNameInTable="columnMaxDPS" msprop:Generator_ColumnPropNameInRow="MaxDPS" msprop:Generator_ColumnPropNameInTable="MaxDPSColumn" msprop:Generator_UserColumnName="MaxDPS" type="xs:float" default="0" minOccurs="0" />
+              <xs:element name="DownCount" msprop:Generator_ColumnVarNameInTable="columnDownCount" msprop:Generator_ColumnPropNameInRow="DownCount" msprop:Generator_ColumnPropNameInTable="DownCountColumn" msprop:Generator_UserColumnName="DownCount" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="KOCount" msprop:Generator_ColumnVarNameInTable="columnKOCount" msprop:Generator_ColumnPropNameInRow="KOCount" msprop:Generator_ColumnPropNameInTable="KOCountColumn" msprop:Generator_UserColumnName="KOCount" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="FirstSeconds" msprop:Generator_ColumnVarNameInTable="columnFirstSeconds" msprop:Generator_ColumnPropNameInRow="FirstSeconds" msprop:Generator_ColumnPropNameInTable="FirstSecondsColumn" msprop:Generator_UserColumnName="FirstSeconds" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="LastSeconds" msprop:Generator_ColumnVarNameInTable="columnLastSeconds" msprop:Generator_ColumnPropNameInRow="LastSeconds" msprop:Generator_ColumnPropNameInTable="LastSecondsColumn" msprop:Generator_UserColumnName="LastSeconds" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="PastSeconds" msdata:ReadOnly="true" msdata:Expression="LastSeconds - Max(LastSeconds)" msprop:Generator_ColumnVarNameInTable="columnPastSeconds" msprop:Generator_ColumnPropNameInRow="PastSeconds" msprop:Generator_ColumnPropNameInTable="PastSecondsColumn" msprop:Generator_UserColumnName="PastSeconds" type="xs:int" minOccurs="0" />
+              <xs:element name="DDValue" msprop:Generator_ColumnVarNameInTable="columnDDValue" msprop:Generator_ColumnPropNameInRow="DDValue" msprop:Generator_ColumnPropNameInTable="DDValueColumn" msprop:Generator_UserColumnName="DDValue" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="DotValue" msprop:Generator_ColumnVarNameInTable="columnDotValue" msprop:Generator_ColumnPropNameInRow="DotValue" msprop:Generator_ColumnPropNameInTable="DotValueColumn" msprop:Generator_UserColumnName="DotValue" type="xs:int" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ActionReport" msprop:Generator_TableClassName="ActionReportDataTable" msprop:Generator_TableVarName="tableActionReport" msprop:Generator_TablePropName="ActionReport" msprop:Generator_RowDeletingName="ActionReportRowDeleting" msprop:Generator_UserTableName="ActionReport" msprop:Generator_RowChangingName="ActionReportRowChanging" msprop:Generator_RowEvHandlerName="ActionReportRowChangeEventHandler" msprop:Generator_RowDeletedName="ActionReportRowDeleted" msprop:Generator_RowEvArgName="ActionReportRowChangeEvent" msprop:Generator_RowChangedName="ActionReportRowChanged" msprop:Generator_RowClassName="ActionReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name_Action" msprop:Generator_ColumnVarNameInTable="columnName_Action" msprop:Generator_ColumnPropNameInRow="Name_Action" msprop:Generator_ColumnPropNameInTable="Name_ActionColumn" msprop:Generator_UserColumnName="Name_Action" type="xs:string" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Action" msprop:Generator_ColumnVarNameInTable="columnAction" msprop:Generator_ColumnPropNameInRow="Action" msprop:Generator_ColumnPropNameInTable="ActionColumn" msprop:Generator_UserColumnName="Action" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalDmg" msprop:Generator_ColumnVarNameInTable="columnTotalDmg" msprop:Generator_ColumnPropNameInRow="TotalDmg" msprop:Generator_ColumnPropNameInTable="TotalDmgColumn" msprop:Generator_UserColumnName="TotalDmg" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="Invokes" msprop:Generator_ColumnVarNameInTable="columnInvokes" msprop:Generator_ColumnPropNameInRow="Invokes" msprop:Generator_ColumnPropNameInTable="InvokesColumn" msprop:Generator_UserColumnName="Invokes" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="AtkHit" msprop:Generator_ColumnVarNameInTable="columnAtkHit" msprop:Generator_ColumnPropNameInRow="AtkHit" msprop:Generator_ColumnPropNameInTable="AtkHitColumn" msprop:Generator_UserColumnName="AtkHit" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="AtkMiss" msprop:Generator_ColumnVarNameInTable="columnAtkMiss" msprop:Generator_ColumnPropNameInRow="AtkMiss" msprop:Generator_ColumnPropNameInTable="AtkMissColumn" msprop:Generator_UserColumnName="AtkMiss" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="AtkCount" msdata:ReadOnly="true" msdata:Expression="AtkHit+AtkMiss" msprop:Generator_ColumnVarNameInTable="columnAtkCount" msprop:Generator_ColumnPropNameInRow="AtkCount" msprop:Generator_ColumnPropNameInTable="AtkCountColumn" msprop:Generator_UserColumnName="AtkCount" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="HitRate" msdata:ReadOnly="true" msdata:Expression="IIF(AtkCount&gt;0,100*AtkHit/AtkCount,0)" msprop:Generator_ColumnVarNameInTable="columnHitRate" msprop:Generator_ColumnPropNameInRow="HitRate" msprop:Generator_ColumnPropNameInTable="HitRateColumn" msprop:Generator_UserColumnName="HitRate" type="xs:float" default="0" minOccurs="0" />
+              <xs:element name="MaxDmg" msprop:Generator_ColumnVarNameInTable="columnMaxDmg" msprop:Generator_ColumnPropNameInRow="MaxDmg" msprop:Generator_ColumnPropNameInTable="MaxDmgColumn" msprop:Generator_UserColumnName="MaxDmg" type="xs:int" minOccurs="0" />
+              <xs:element name="MinDmg" msprop:Generator_ColumnVarNameInTable="columnMinDmg" msprop:Generator_ColumnPropNameInRow="MinDmg" msprop:Generator_ColumnPropNameInTable="MinDmgColumn" msprop:Generator_UserColumnName="MinDmg" type="xs:int" minOccurs="0" />
+              <xs:element name="AveDmg" msdata:ReadOnly="true" msdata:Expression="IIF(AtkCount&gt;0,TotalDmg/AtkCount,0)" msprop:Generator_ColumnVarNameInTable="columnAveDmg" msprop:Generator_ColumnPropNameInRow="AveDmg" msprop:Generator_ColumnPropNameInTable="AveDmgColumn" msprop:Generator_UserColumnName="AveDmg" type="xs:int" minOccurs="0" />
+              <xs:element name="InvokeRate" msprop:Generator_ColumnVarNameInTable="columnInvokeRate" msprop:Generator_ColumnPropNameInRow="InvokeRate" msprop:Generator_ColumnPropNameInTable="InvokeRateColumn" msprop:Generator_UserColumnName="InvokeRate" type="xs:float" default="0" minOccurs="0" />
+              <xs:element name="DmgRate" msprop:Generator_ColumnVarNameInTable="columnDmgRate" msprop:Generator_ColumnPropNameInRow="DmgRate" msprop:Generator_ColumnPropNameInTable="DmgRateColumn" msprop:Generator_UserColumnName="DmgRate" type="xs:float" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Reportlog" msprop:Generator_TableClassName="ReportlogDataTable" msprop:Generator_TableVarName="tableReportlog" msprop:Generator_TablePropName="Reportlog" msprop:Generator_RowDeletingName="ReportlogRowDeleting" msprop:Generator_UserTableName="Reportlog" msprop:Generator_RowChangingName="ReportlogRowChanging" msprop:Generator_RowEvHandlerName="ReportlogRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportlogRowDeleted" msprop:Generator_RowEvArgName="ReportlogRowChangeEvent" msprop:Generator_RowChangedName="ReportlogRowChanged" msprop:Generator_RowClassName="ReportlogRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Report" msprop:Generator_ColumnVarNameInTable="columnReport" msprop:Generator_ColumnPropNameInRow="Report" msprop:Generator_ColumnPropNameInTable="ReportColumn" msprop:Generator_UserColumnName="Report" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CharactorFolder" msprop:Generator_TableClassName="CharactorFolderDataTable" msprop:Generator_TableVarName="tableCharactorFolder" msprop:Generator_TablePropName="CharactorFolder" msprop:Generator_RowDeletingName="CharactorFolderRowDeleting" msprop:Generator_UserTableName="CharactorFolder" msprop:Generator_RowChangingName="CharactorFolderRowChanging" msprop:Generator_RowEvHandlerName="CharactorFolderRowChangeEventHandler" msprop:Generator_RowDeletedName="CharactorFolderRowDeleted" msprop:Generator_RowEvArgName="CharactorFolderRowChangeEvent" msprop:Generator_RowChangedName="CharactorFolderRowChanged" msprop:Generator_RowClassName="CharactorFolderRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FolderName" msprop:Generator_ColumnVarNameInTable="columnFolderName" msprop:Generator_ColumnPropNameInRow="FolderName" msprop:Generator_ColumnPropNameInTable="FolderNameColumn" msprop:Generator_UserColumnName="FolderName" type="xs:string" minOccurs="0" />
+              <xs:element name="FullPath" msprop:Generator_ColumnVarNameInTable="columnFullPath" msprop:Generator_ColumnPropNameInRow="FullPath" msprop:Generator_ColumnPropNameInTable="FullPathColumn" msprop:Generator_UserColumnName="FullPath" type="xs:string" minOccurs="0" />
+              <xs:element name="CharName" msprop:Generator_ColumnVarNameInTable="columnCharName" msprop:Generator_ColumnPropNameInRow="CharName" msprop:Generator_ColumnPropNameInTable="CharNameColumn" msprop:Generator_UserColumnName="CharName" type="xs:string" minOccurs="0" />
+              <xs:element name="ServerName" msprop:Generator_ColumnVarNameInTable="columnServerName" msprop:Generator_ColumnPropNameInRow="ServerName" msprop:Generator_ColumnPropNameInTable="ServerNameColumn" msprop:Generator_UserColumnName="ServerName" type="xs:string" minOccurs="0" />
+              <xs:element name="LastLoggedin" msprop:Generator_ColumnVarNameInTable="columnLastLoggedin" msprop:Generator_ColumnPropNameInRow="LastLoggedin" msprop:Generator_ColumnPropNameInTable="LastLoggedinColumn" msprop:Generator_UserColumnName="LastLoggedin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LastPlay" msprop:Generator_ColumnVarNameInTable="columnLastPlay" msprop:Generator_ColumnPropNameInRow="LastPlay" msprop:Generator_ColumnPropNameInTable="LastPlayColumn" msprop:Generator_UserColumnName="LastPlay" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DPSReport" />
+      <xs:field xpath="mstns:Name" />
+    </xs:unique>
+    <xs:unique name="ActionReport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ActionReport" />
+      <xs:field xpath="mstns:Name_Action" />
+    </xs:unique>
+    <xs:unique name="Reportlog_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Reportlog" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
