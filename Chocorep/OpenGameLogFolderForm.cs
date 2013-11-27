@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 using System.Text.RegularExpressions;
 using System.IO;
-using LogManipulate;
+using FFXIV_Tools;
 namespace FF14FastReport
 {
     public partial class OpenGameLogFolderForm : Form

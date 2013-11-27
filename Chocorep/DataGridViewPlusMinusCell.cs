@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace LogManipulate
+namespace FFXIV_Tools
 {
     public class DataGridViewPlusMinusColumn : DataGridViewColumn
     {

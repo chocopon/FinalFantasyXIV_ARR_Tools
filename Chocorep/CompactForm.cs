@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using LogManipulate;
+using FFXIV_Tools;
 namespace FF14FastReport
 {
     public partial class CompactForm : Form

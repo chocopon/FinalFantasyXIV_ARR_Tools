@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace LogManipulate
+namespace FFXIV_Tools
 {
     public class PivotA
     {

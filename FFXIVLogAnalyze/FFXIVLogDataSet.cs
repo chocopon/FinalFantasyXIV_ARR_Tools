@@ -1,10 +1,10 @@
-﻿namespace LogManipulate {
+﻿namespace FFXIV_Tools {
     
     
     public partial class FFXIVLogDataSet {
     }
 }
-namespace LogManipulate {
+namespace FFXIV_Tools {
     
     
     public partial class FFXIVLogDataSet {

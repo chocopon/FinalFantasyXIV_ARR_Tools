@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using LogManipulate;
+using FFXIV_Tools;
 
 namespace FF14FastReport
 {

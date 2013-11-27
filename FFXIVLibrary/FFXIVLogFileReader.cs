@@ -5,7 +5,7 @@ using System.Text;
 
 using System.IO;
 
-namespace LogManipulate
+namespace FFXIV_Tools
 {
     /// <summary>
     /// 新生FF14 ログファイルリーダー

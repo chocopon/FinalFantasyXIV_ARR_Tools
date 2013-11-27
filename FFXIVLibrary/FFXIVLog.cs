@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace LogManipulate
+namespace FFXIV_Tools
 {
     public class FFXIVLog
     {

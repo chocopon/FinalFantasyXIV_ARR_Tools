@@ -1,4 +1,4 @@
-﻿namespace LogManipulate
+﻿namespace FFXIV_Tools
 {
     partial class AnalyzeForm
     {
@@ -39,7 +39,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.OrderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new LogManipulate.DataGridViewPlusMinusColumn();
+            this.Column1 = new FFXIV_Tools.DataGridViewPlusMinusColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewPlusMinusColumn1 = new LogManipulate.DataGridViewPlusMinusColumn();
+            this.dataGridViewPlusMinusColumn1 = new FFXIV_Tools.DataGridViewPlusMinusColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();

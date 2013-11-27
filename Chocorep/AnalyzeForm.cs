@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace LogManipulate
+namespace FFXIV_Tools
 {
     public partial class AnalyzeForm : Form
     {

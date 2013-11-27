@@ -40,7 +40,7 @@
             this.更新UToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ffxivLogDataSet1 = new LogManipulate.FFXIVLogDataSet();
+            this.ffxivLogDataSet1 = new FFXIV_Tools.FFXIVLogDataSet();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalSecondsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -715,7 +715,7 @@
         private System.Windows.Forms.ToolStripMenuItem 更新UToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private LogManipulate.FFXIVLogDataSet ffxivLogDataSet1;
+        private FFXIV_Tools.FFXIVLogDataSet ffxivLogDataSet1;
         private System.Windows.Forms.ToolStripMenuItem ユーザーフォルダからインポートToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem 開くOToolStripMenuItem;

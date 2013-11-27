@@ -89,7 +89,7 @@
             this.isLevelSyncStartDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isLevelSyncEndDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.ffxivLogDataSet1 = new LogManipulate.FFXIVLogDataSet();
+            this.ffxivLogDataSet1 = new FFXIV_Tools.FFXIVLogDataSet();
             this.ResetButton = new System.Windows.Forms.Button();
             this.StartIDTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -682,7 +682,7 @@
         private System.Windows.Forms.Button ActionReportButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource bindingSource2;
-        private LogManipulate.FFXIVLogDataSet ffxivLogDataSet1;
+        private FFXIV_Tools.FFXIVLogDataSet ffxivLogDataSet1;
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalSecondsDataGridViewTextBoxColumn;

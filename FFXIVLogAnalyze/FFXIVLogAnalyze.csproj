@@ -8,7 +8,7 @@
     <ProjectGuid>{30D37EED-D57B-4494-924E-F5D659564074}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LogManipulate</RootNamespace>
+    <RootNamespace>FFXIV_Tools</RootNamespace>
     <AssemblyName>FFXIVLogAnalyze</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

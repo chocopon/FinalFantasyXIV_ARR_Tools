@@ -45,7 +45,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectLogRegionForm));
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ffxivLogDataSet1 = new LogManipulate.FFXIVLogDataSet();
+            this.ffxivLogDataSet1 = new FFXIV_Tools.FFXIVLogDataSet();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.IDStartEndBox = new System.Windows.Forms.CheckBox();
             this.SystemEventBox = new System.Windows.Forms.CheckBox();
@@ -1616,7 +1616,7 @@
         #endregion
 
         private System.Windows.Forms.BindingSource bindingSource1;
-        private LogManipulate.FFXIVLogDataSet ffxivLogDataSet1;
+        private FFXIV_Tools.FFXIVLogDataSet ffxivLogDataSet1;
         private System.Windows.Forms.BindingSource bindingSource2;
         private System.Windows.Forms.CheckBox IDStartEndBox;
         private System.Windows.Forms.CheckBox SystemEventBox;

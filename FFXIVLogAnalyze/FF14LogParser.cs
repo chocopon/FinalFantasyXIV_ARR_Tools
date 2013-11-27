@@ -6,7 +6,7 @@ using System.Data;
 using System.Text.RegularExpressions;
 using System.IO;
 
-namespace LogManipulate
+namespace FFXIV_Tools
 {
     // TODO: buff系　debuff系の解析
     // 術・魔法　開始

@@ -7,7 +7,7 @@ using System.IO;
 
 using ProcessMemoryTool;
 
-namespace LogManipulate
+namespace FFXIV_Tools
 {
     public class FFXIVLogMemoryInfo
     {
