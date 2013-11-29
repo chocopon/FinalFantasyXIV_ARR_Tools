@@ -13,6 +13,14 @@ namespace FFXIVLogWindow
 {
     public partial class FFXIVLogWindowForm : Form
     {
+        string soundfolderpath
+        {
+            get
+            {
+                return System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sounds");
+            }
+        }
+
         public FFXIVLogWindowForm()
         {
             InitializeComponent();
@@ -431,6 +439,11 @@ namespace FFXIVLogWindow
         private void FFXIVLogWindowForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.Save();
+        }
+
+        private void 実行中のゲームからインポートLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -342,6 +342,7 @@
             this.実行中のゲームからインポートLToolStripMenuItem.Name = "実行中のゲームからインポートLToolStripMenuItem";
             this.実行中のゲームからインポートLToolStripMenuItem.Size = new System.Drawing.Size(306, 22);
             this.実行中のゲームからインポートLToolStripMenuItem.Text = "実行中のゲームからインポート(&L)";
+            this.実行中のゲームからインポートLToolStripMenuItem.Click += new System.EventHandler(this.実行中のゲームからインポートLToolStripMenuItem_Click);
             // 
             // AlarmBox10
             // 
