@@ -12,7 +12,8 @@ namespace ProcessMemoryTool
     /// </summary>
     public class ProcessMemory
     {
-        Process proc;
+        internal Process proc;
+
         Memory memory;
 
         public ProcessMemory(Process p)

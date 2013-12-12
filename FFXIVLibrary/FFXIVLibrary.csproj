@@ -51,6 +51,7 @@
     <Compile Include="FFXIVLog.cs" />
     <Compile Include="FFXIVLogFileReader.cs" />
     <Compile Include="FFXIVLogMemoryInfo.cs" />
+    <Compile Include="FFXIVLogPointer.cs" />
     <Compile Include="FFXIVLogWatcher.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="MemoryProvidor.cs" />

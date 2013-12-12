@@ -9,7 +9,7 @@ using ProcessMemoryTool;
 
 namespace FFXIV_Tools
 {
-    public class FFXIVLogMemoryInfo
+    public partial class FFXIVLogMemoryInfo
     {
         System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[0-9A-F]{12}::Welcome to");
 
@@ -38,7 +38,7 @@ namespace FFXIV_Tools
         /// <summary>
         /// FF14のプロセス
         /// </summary>
-        ProcessMemory ffxiv;
+        internal ProcessMemory ffxiv;
 
         /// <summary>
         /// FFXIVLogMemoryInfo
@@ -55,52 +55,48 @@ namespace FFXIV_Tools
         /// <returns></returns>
         public bool SearchLogMemoryInfo()
         {
-            //プログレス
-            Progress = 0;
-            //debug
-            DateTime st = DateTime.Now;
 
-            List<Memory.MEMORY_BASIC_INFORMATION> WRMemoryInfoList = new List<Memory.MEMORY_BASIC_INFORMATION>();
-            Memory memory = new Memory();
-
-            foreach (Memory.MEMORY_BASIC_INFORMATION m in ffxiv.GetMemoryBasicInfos())
+            try
             {
-                if (m.Type != (uint)Memory.MEMORY_TYPE.MEM_PRIVATE || m.Protect != Memory.MEMORY_ALLOCATION_PROTECT.PAGE_READWRITE)
-                    continue;
-                                //Write Read属性のメモリinfoをリスト化
-                WRMemoryInfoList.Add(m);
+                //OFFSET型
+                FFXIVLogPointer p = GetChatLogPointer();
+                LogEntPtr=(int)p.logEnt;
+                LogCurrentPtr = (int)p.logCurrent;
+                LogIndexPtr = (int)p.logIndext;
+                LogCountPtr = (int)p.logCount;
+
+                return true;
             }
-            WRMemoryInfoList.Sort((a, b) => (int)a.BaseAddress - (int)b.BaseAddress);
-
-            Regex logRegex = new Regex("[0-9A-F]{12}:[^\x00]{0,36}:[^\x00]*?[0-9A-F]{12}:[^\x00]{0,36}");
-
-            int prog = 0;
-
-            foreach (Memory.MEMORY_BASIC_INFORMATION m in WRMemoryInfoList)
+            catch
             {
+
                 //プログレス
-                Progress = 100 * prog++ / WRMemoryInfoList.Count;
+                Progress = 0;
+                //debug
+                DateTime st = DateTime.Now;
 
-                //キャンセル可能
-                if (IsCancelPending)
-                {
-                    IsCancelPending = false;
-                    return false;
-                }
-              
-                // 1 "::Welcome to Masamune ! 「等」を探す
 
-                byte[] buffer = ffxiv.ReadBytes((int)m.BaseAddress, (int)m.RegionSize);
-                string str = ASCIIEncoding.ASCII.GetString(buffer);
-                if (!str.Contains(":"))
+                List<Memory.MEMORY_BASIC_INFORMATION> WRMemoryInfoList = new List<Memory.MEMORY_BASIC_INFORMATION>();
+                Memory memory = new Memory();
+
+                foreach (Memory.MEMORY_BASIC_INFORMATION m in ffxiv.GetMemoryBasicInfos())
                 {
-                    continue;
+                    if (m.Type != (uint)Memory.MEMORY_TYPE.MEM_PRIVATE || m.Protect != Memory.MEMORY_ALLOCATION_PROTECT.PAGE_READWRITE)
+                        continue;
+                    //Write Read属性のメモリinfoをリスト化
+                    WRMemoryInfoList.Add(m);
                 }
-                //Welcome to を取得
-                //if (Encoding.ASCII.GetString(buffer).Contains("::Welcome to"))
-                MatchCollection matches = logRegex.Matches(str);
-                foreach(Match match in matches)
+                WRMemoryInfoList.Sort((a, b) => (int)a.BaseAddress - (int)b.BaseAddress);
+
+                Regex logRegex = new Regex("[0-9A-F]{12}:[^\x00]{0,36}:[^\x00]*?[0-9A-F]{12}:[^\x00]{0,36}");
+
+                int prog = 0;
+
+                foreach (Memory.MEMORY_BASIC_INFORMATION m in WRMemoryInfoList)
                 {
+                    //プログレス
+                    Progress = 100 * prog++ / WRMemoryInfoList.Count;
+
                     //キャンセル可能
                     if (IsCancelPending)
                     {
@@ -108,60 +104,79 @@ namespace FFXIV_Tools
                         return false;
                     }
 
-                    string TimstampHexString = match.Value.Substring(0, 8);
-                    DateTime datetime = FFXIVLog.StartDateTime.AddSeconds(Convert.ToInt32(TimstampHexString,16));
-                    if (datetime < new DateTime(2013, 8, 29) || datetime > DateTime.Now.ToUniversalTime())
+                    // 1 "::Welcome to Masamune ! 「等」を探す
+
+                    byte[] buffer = ffxiv.ReadBytes((int)m.BaseAddress, (int)m.RegionSize);
+                    string str = ASCIIEncoding.ASCII.GetString(buffer);
+                    if (!str.Contains(":"))
                     {
                         continue;
                     }
-
-                    //"::Welcome to"のアドレス
-                    int offset = match.Index;
-                    if (offset < 12) continue;
-                    //ログの開始アドレス
-                    int ptr_logStart = (int)m.BaseAddress + offset;//
-                    //ログを取得して正規表現でチェック
-                    byte[] data = ffxiv.ReadBytes(ptr_logStart, 100);
-                    //ptr_LogStartRegexが格納されているアドレスをサーチする
-                    foreach (Memory.MEMORY_BASIC_INFORMATION _m in WRMemoryInfoList)
+                    //Welcome to を取得
+                    //if (Encoding.ASCII.GetString(buffer).Contains("::Welcome to"))
+                    MatchCollection matches = logRegex.Matches(str);
+                    foreach (Match match in matches)
                     {
-                        byte[] _buffer = ffxiv.ReadBytes((int)_m.BaseAddress, (int)_m.RegionSize);
-                        MemoryStream ms = new MemoryStream(_buffer);
-                        BinaryReader br = new BinaryReader(ms);
-                        while (ms.Position < _buffer.Length - 4)
+                        //キャンセル可能
+                        if (IsCancelPending)
                         {
-                            if (ptr_logStart == br.ReadInt32())//アドレス格納先？
-                            {
-                                int c_ptr_LogEnd = br.ReadInt32();
-                                if (c_ptr_LogEnd >= ptr_logStart &&
-                                    c_ptr_LogEnd <= (int)m.BaseAddress + (int)m.RegionSize)
-                                {
-                                    //見つけた！
-                                    LogEntPtr = (int)_m.BaseAddress + (int)ms.Position - 8;
-                                    LogCurrentPtr = LogEntPtr + 4;
-                                    LogIndexPtr = LogEntPtr - 0x10;
-                                    LogCountPtr = LogEntPtr - 0x30;
+                            IsCancelPending = false;
+                            return false;
+                        }
 
-                                    try
+                        string TimstampHexString = match.Value.Substring(0, 8);
+                        DateTime datetime = FFXIVLog.StartDateTime.AddSeconds(Convert.ToInt32(TimstampHexString, 16));
+                        if (datetime < new DateTime(2013, 8, 29) || datetime > DateTime.Now.ToUniversalTime())
+                        {
+                            continue;
+                        }
+
+                        //"::Welcome to"のアドレス
+                        int offset = match.Index;
+                        if (offset < 12) continue;
+                        //ログの開始アドレス
+                        int ptr_logStart = (int)m.BaseAddress + offset;//
+                        //ログを取得して正規表現でチェック
+                        byte[] data = ffxiv.ReadBytes(ptr_logStart, 100);
+                        //ptr_LogStartRegexが格納されているアドレスをサーチする
+                        foreach (Memory.MEMORY_BASIC_INFORMATION _m in WRMemoryInfoList)
+                        {
+                            byte[] _buffer = ffxiv.ReadBytes((int)_m.BaseAddress, (int)_m.RegionSize);
+                            MemoryStream ms = new MemoryStream(_buffer);
+                            BinaryReader br = new BinaryReader(ms);
+                            while (ms.Position < _buffer.Length - 4)
+                            {
+                                if (ptr_logStart == br.ReadInt32())//アドレス格納先？
+                                {
+                                    int c_ptr_LogEnd = br.ReadInt32();
+                                    if (c_ptr_LogEnd >= ptr_logStart &&
+                                        c_ptr_LogEnd <= (int)m.BaseAddress + (int)m.RegionSize)
                                     {
-                                        GetLogsData();
-                                        DateTime fini = DateTime.Now;
-                                        System.Diagnostics.Debug.WriteLine((fini - st).TotalSeconds);
-                                        return true;
-                                    }
-                                    catch
-                                    {
+                                        //見つけた！
+                                        LogEntPtr = (int)_m.BaseAddress + (int)ms.Position - 8;
+                                        LogCurrentPtr = LogEntPtr + 4;
+                                        LogIndexPtr = LogEntPtr - 0x10;
+                                        LogCountPtr = LogEntPtr - 0x30;
+
+                                        try
+                                        {
+                                            GetLogsData();
+                                            DateTime fini = DateTime.Now;
+                                            System.Diagnostics.Debug.WriteLine((fini - st).TotalSeconds);
+                                            return true;
+                                        }
+                                        catch
+                                        {
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+                //みつからなかった
+                return false;
             }
-
-
-            //みつからなかった
-            return false;
         }
 
         private bool TryGetMemoryInfo(List<Memory.MEMORY_BASIC_INFORMATION> sortedList, int address, out Memory.MEMORY_BASIC_INFORMATION m_info)
